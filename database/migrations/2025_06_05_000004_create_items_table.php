@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('items', function (Blueprint $table) {
+            $table->string('id')->primary(); // format: "KRS-0001", "KMP-0002"
+            $table->string('name');
+            $table->foreignId('item_category_id')->constrained('item_categories')->cascadeOnDelete();
+            $table->string('type');
+            $table->enum('condition', ['baik', 'rusak ringan', 'rusak berat']);
+            $table->string('inventory_code')->unique();
+            $table->year('purchase_year');
+            $table->string('photo_path')->nullable();
+            $table->string('qr_code')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('items');
+    }
+};
