@@ -29,7 +29,10 @@
     <div x-data="scannerApp()" x-init="init()">
         <header class="bg-white shadow-md">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <h1 class="text-xl font-bold text-gray-800">SI-SARANA BKPSDM SUBANG</h1>
+                <div class="flex items-center gap-3">
+                    <img src="/assets/logo.png" alt="Logo" class="h-8 w-8 object-contain">
+                    <h1 class="text-xl font-bold text-gray-800">SIRANA BKPSDM</h1>
+                </div>
                 <a href="/login" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">Login</a>
             </div>
         </header>
