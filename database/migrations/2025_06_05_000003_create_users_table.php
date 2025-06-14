@@ -15,8 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('role')->default('user'); // Default role set to 'user'
-            $table->uuid('division_id')->nullable();
-            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('set null');
+            $table->foreignId('division_id')->nullable()->constrained('divisions')->nullOnDelete();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

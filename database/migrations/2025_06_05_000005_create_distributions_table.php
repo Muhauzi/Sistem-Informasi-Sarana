@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('distributions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->constrained()->cascadeOnDelete();
+            $table->string('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->foreignId('division_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('distributed_by')->constrained('users')->cascadeOnDelete();
-            $table->integer('quantity')->default(1);
+            $table->uuid('distributed_by');
+            $table->foreign('distributed_by')->references('id')->on('users')->cascadeOnDelete();
             $table->text('condition_note')->nullable();
             $table->date('distributed_at');
             $table->timestamps();

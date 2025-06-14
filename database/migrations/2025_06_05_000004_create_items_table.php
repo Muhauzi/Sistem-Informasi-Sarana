@@ -15,9 +15,7 @@ return new class extends Migration
             $table->string('id')->primary(); // format: "KRS-0001", "KMP-0002"
             $table->string('name');
             $table->foreignId('item_category_id')->constrained('item_categories')->cascadeOnDelete();
-            $table->string('type');
             $table->enum('condition', ['baik', 'rusak ringan', 'rusak berat']);
-            $table->string('inventory_code')->unique();
             $table->year('purchase_year');
             $table->string('photo_path')->nullable();
             $table->string('qr_code')->nullable();

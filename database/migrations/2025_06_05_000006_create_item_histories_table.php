@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('item_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->constrained()->cascadeOnDelete();
+            $table->string('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->foreignId('from_division_id')->nullable()->constrained('divisions')->nullOnDelete();
             $table->foreignId('to_division_id')->constrained('divisions')->cascadeOnDelete();
-            $table->foreignId('moved_by')->constrained('users')->cascadeOnDelete();
+            $table->uuid('moved_by');
+            $table->foreign('moved_by')->references('id')->on('users')->cascadeOnDelete();
             $table->dateTime('moved_at');
             $table->text('note')->nullable();
             $table->timestamps();

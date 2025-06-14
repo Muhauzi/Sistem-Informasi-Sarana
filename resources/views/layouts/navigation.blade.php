@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('kategori-sarana.index')" :active="request()->routeIs('kategori-sarana.*')">
+                        {{ __('Kategori Sarana') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('sarana.index')" :active="request()->routeIs('sarana.*')">
+                        {{ __('Sarana') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('divisi.index')" :active="request()->routeIs('divisi.*')">
+                        {{ __('Divisi') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('distributions.index')" :active="request()->routeIs('distributions.*')">
+                        {{ __('Distribusi Sarana') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -70,6 +82,19 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('kategori-sarana.index')" :active="request()->routeIs('kategori-sarana.*')">
+                {{ __('Kategori Sarana') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('sarana.index')" :active="request()->routeIs('sarana.*')">
+                {{ __('Sarana') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('divisi.index')" :active="request()->routeIs('divisi.*')">
+                {{ __('Divisi') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('distributions.index')" :active="request()->routeIs('distributions.*')">
+                {{ __('Distribusi Sarana') }}
+            </x-responsive-nav-link>
+            
         </div>
 
         <!-- Responsive Settings Options -->
