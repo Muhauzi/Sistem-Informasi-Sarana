@@ -63,5 +63,15 @@ Route::middleware('auth')->prefix('distributions')->name('distributions.')->grou
     Route::get('/{id}', [DistributionController::class, 'show'])->name('show');
 });
 
+Route::middleware('auth')->prefix('users')->name('users.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\UsersController::class, 'index'])->name('index');
+    Route::get('/create', [\App\Http\Controllers\UsersController::class, 'create'])->name('create');
+    Route::post('/store', [\App\Http\Controllers\UsersController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [\App\Http\Controllers\UsersController::class, 'edit'])->name('edit');
+    Route::put('/{id}/update', [\App\Http\Controllers\UsersController::class, 'update'])->name('update');
+    Route::delete('/{id}/destroy', [\App\Http\Controllers\UsersController::class, 'destroy'])->name('destroy');
+    Route::get('/{id}', [\App\Http\Controllers\UsersController::class, 'show'])->name('show');
+});
+
 
 require __DIR__.'/auth.php';

@@ -23,6 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'division_id',
     ];
 
     /**
@@ -46,6 +48,24 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /*
+    * division
+    */
+    public function division()
+    {
+        return $this->belongsTo(M_Divisions::class, 'division_id');
+    }
+
+    function itemHistories()
+    {
+        return $this->hasMany(M_Item_Histories::class, 'distributed_by');
+    }
+
+    function distributions()
+    {
+        return $this->hasMany(M_Distributions::class, 'distributed_by');
     }
 
 
