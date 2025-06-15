@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->prefix('kategori-sarana')->name('kategori-sarana.')->group(function () {
+Route::middleware('auth', 'role:admin,pengelola')->prefix('kategori-sarana')->name('kategori-sarana.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
     Route::get('/create', [CategoryController::class, 'create'])->name('create');
     Route::post('/store', [CategoryController::class, 'store'])->name('store');
@@ -42,7 +42,7 @@ Route::middleware('auth')->prefix('sarana')->name('sarana.')->group(function () 
     Route::post('/cetak/{id}', [ItemController::class, 'qrGenerate'])->name('generateQrCode');
 });
 
-Route::middleware('auth')->prefix('divisi')->name('divisi.')->group(function () {
+Route::middleware('auth', 'role:admin,pengelola')->prefix('divisi')->name('divisi.')->group(function () {
     Route::get('/', [DivisionsController::class, 'index'])->name('index');
     Route::get('/create', [DivisionsController::class, 'create'])->name('create');
     Route::post('/store', [DivisionsController::class, 'store'])->name('store');
@@ -52,7 +52,7 @@ Route::middleware('auth')->prefix('divisi')->name('divisi.')->group(function () 
     Route::get('/{id}', [DivisionsController::class, 'show'])->name('show');
 });
 
-Route::middleware('auth')->prefix('distributions')->name('distributions.')->group(function () {
+Route::middleware('auth', 'role:admin,pengelola')->prefix('distributions')->name('distributions.')->group(function () {
     Route::get('/', [DistributionController::class, 'index'])->name('index');
     Route::get('/create', [DistributionController::class, 'create'])->name('create');
     Route::get('/get-items/{id}', [DistributionController::class, 'createGetItems'])->name('get-items');
@@ -63,7 +63,7 @@ Route::middleware('auth')->prefix('distributions')->name('distributions.')->grou
     Route::get('/{id}', [DistributionController::class, 'show'])->name('show');
 });
 
-Route::middleware('auth')->prefix('users')->name('users.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('users')->name('users.')->group(function () {
     Route::get('/', [\App\Http\Controllers\UsersController::class, 'index'])->name('index');
     Route::get('/create', [\App\Http\Controllers\UsersController::class, 'create'])->name('create');
     Route::post('/store', [\App\Http\Controllers\UsersController::class, 'store'])->name('store');

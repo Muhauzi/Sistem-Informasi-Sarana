@@ -1,21 +1,19 @@
-<div>
-    <!-- <button type="button" onclick="confirmSubmit()">Submit</button> -->
-
-    <script>
-    function confirmSubmit($idform) {
+<script>
+    document.getElementById('submit-form').addEventListener('submit', function(e) {
+        e.preventDefault();
         Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data akan disimpan!",
-            icon: 'warning',
+            title: 'Simpan Kategori?',
+            text: "Pastikan data sudah benar.",
+            icon: 'question',
             showCancelButton: true,
-            confirmButtonText: 'Ya, kirim!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Simpan!',
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Cari form berdasarkan ID yang unik dan submit form tersebut
-                document.getElementById($idform).submit();
+                e.target.submit();
             }
         });
-    }
-    </script>
-</div>
+    });
+</script>

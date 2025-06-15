@@ -22,7 +22,7 @@
                     </div>
 
                     {{-- Form Tambah Data --}}
-                    <form method="POST" action="{{ route('users.store') }}" class="space-y-6">
+                    <form id="create-form" method="POST" action="{{ route('users.store') }}" class="space-y-6">
                         @csrf
 
                         <div>
@@ -135,15 +135,16 @@
                                 Batal
                             </a>
                             <button type="submit"
+                                id="btn-submit-form"
                                 class="px-4 py-2 bg-gray-800 ms-2 text-white text-sm font-semibold rounded-md shadow-sm hover:bg-gray-900 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition">
                                 Simpan User
                             </button>
                         </div>
 
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
+    <x-confirm-submit></x-confirm-submit>
 </x-app-layout>

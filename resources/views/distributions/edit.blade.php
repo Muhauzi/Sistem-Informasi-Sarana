@@ -184,7 +184,7 @@
         const closeQrModal = document.getElementById('closeQrModal');
         const video = document.getElementById('qr-video');
 
-        
+
         let items = @json($items);
         let scanner = null;
         let scannerStarted = false;
@@ -311,6 +311,25 @@
                 items.splice(idx, 1);
                 renderItems();
             }
+        });
+    </script>
+    <script>
+        document.getElementById('distributionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Simpan Data?',
+                text: "Pastikan data sudah benar.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.target.submit();
+                }
+            });
         });
     </script>
 

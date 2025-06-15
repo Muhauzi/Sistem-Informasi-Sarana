@@ -48,12 +48,17 @@ class ItemController extends Controller
 
         $query = $this->itemModel->newQuery();
 
+        // Filter by division if user is pegawai
+        $user = Auth::user();
+        if ($user && $user->role === 'pegawai') {
+            $query->where('division_id', $user->division_id);
+        }
+
         $perPage = request()->input('per_page', 10); // Default to 10
         $items = $query->with(['category'])
             ->orderBy('created_at', 'desc')
             ->paginate($perPage)
             ->withQueryString();
-        // dd($items);
 
         return view('items.index', compact('items', 'categories'));
     }

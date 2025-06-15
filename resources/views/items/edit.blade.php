@@ -22,7 +22,7 @@
                     </div>
 
                     {{-- Form Edit Data --}}
-                    <form method="POST" action="{{ route('sarana.update', $item->id) }}" enctype="multipart/form-data" class="space-y-6">
+                    <form id="formsub" method="POST" action="{{ route('sarana.update', $item->id) }}" enctype="multipart/form-data" class="space-y-6">
                         @csrf
                         @method('PUT')
 
@@ -106,4 +106,23 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('formsub').addEventListener('submit', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Simpan Data?',
+                text: "Pastikan data sudah benar.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.target.submit();
+                }
+            });
+        });
+    </script>
 </x-app-layout>

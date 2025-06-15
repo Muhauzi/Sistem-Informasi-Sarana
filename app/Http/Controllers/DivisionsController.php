@@ -76,7 +76,7 @@ class DivisionsController extends Controller
             'description' => 'nullable|string',
         ]);
 
-        $division = new M_Divisions();
+        $division = $this->divisionModel->newInstance();
         $division->name = $request->name;
         $division->description = $request->description;
         $division->save();

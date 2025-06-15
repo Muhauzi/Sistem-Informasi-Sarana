@@ -18,21 +18,40 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('kategori-sarana.index')" :active="request()->routeIs('kategori-sarana.*')">
-                        {{ __('Kategori Sarana') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('sarana.index')" :active="request()->routeIs('sarana.*')">
-                        {{ __('Sarana') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('divisi.index')" :active="request()->routeIs('divisi.*')">
-                        {{ __('Divisi') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('distributions.index')" :active="request()->routeIs('distributions.*')">
-                        {{ __('Distribusi Sarana') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
-                        {{ __('Users') }}
-                    </x-nav-link>
+                    @if(Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('kategori-sarana.index')" :active="request()->routeIs('kategori-sarana.*')">
+                            {{ __('Kategori Sarana') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('sarana.index')" :active="request()->routeIs('sarana.*')">
+                            {{ __('Sarana') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('divisi.index')" :active="request()->routeIs('divisi.*')">
+                            {{ __('Divisi') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('distributions.index')" :active="request()->routeIs('distributions.*')">
+                            {{ __('Distribusi Sarana') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                    @elseif(Auth::user()->role === 'pengelola')
+                        <x-nav-link :href="route('kategori-sarana.index')" :active="request()->routeIs('kategori-sarana.*')">
+                            {{ __('Kategori Sarana') }}
+                        </x-nav-link>                        
+                        <x-nav-link :href="route('sarana.index')" :active="request()->routeIs('sarana.*')">
+                            {{ __('Sarana') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('divisi.index')" :active="request()->routeIs('divisi.*')">
+                            {{ __('Divisi') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('distributions.index')" :active="request()->routeIs('distributions.*')">
+                            {{ __('Distribusi Sarana') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('sarana.index')" :active="request()->routeIs('sarana.*')">
+                            {{ __('Sarana') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -61,7 +80,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -123,7 +142,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>

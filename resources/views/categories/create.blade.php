@@ -22,7 +22,7 @@
                     </div>
 
                     {{-- Form Tambah Data --}}
-                    <form method="POST" action="{{ route('kategori-sarana.store') }}" class="space-y-6">
+                    <form id="submit-form" method="POST" action="{{ route('kategori-sarana.store') }}" class="space-y-6">
                         @csrf
 
                         <div>
@@ -50,6 +50,7 @@
                                 Batal
                             </a>
                             <button type="submit"
+                            id="btn-submit-form"
                                 class="px-4 py-2 bg-gray-800 ms-2 text-white text-sm font-semibold rounded-md shadow-sm hover:bg-gray-900 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition">
                                 Simpan Kategori
                             </button>
@@ -61,4 +62,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('submit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Simpan Kategori?',
+                text: "Pastikan data sudah benar.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.target.submit();
+                }
+            });
+        });
+    </script>
 </x-app-layout>
