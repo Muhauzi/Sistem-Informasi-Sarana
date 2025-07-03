@@ -1,78 +1,85 @@
 
 # Sistem Informasi Sarana
 
-Sistem Informasi Sarana adalah sebuah aplikasi berbasis web yang dirancang untuk membantu pengelolaan data sarana dan prasarana pada suatu instansi atau organisasi. Aplikasi ini mempermudah proses pendataan, monitoring kondisi, dan pengelolaan inventaris sarana.
+Sistem Informasi Sarana adalah aplikasi web berbasis Laravel yang digunakan untuk membantu pencatatan dan manajemen distribusi sarana/barang di sebuah organisasi. Aplikasi ini bertujuan mempermudah pencatatan distribusi barang ke setiap divisi, mengenali kepemilikan sarana dengan QR Code, dan mengelola data terkait sarana secara terpusat.
 
-## 🚀 Fitur Utama
+## ✨ Fitur Utama
 
-- **Manajemen Data Sarana**
-  - Tambah, ubah, dan hapus data sarana.
-  - Kategori dan detail inventaris.
-- **Monitoring & Pelaporan**
-  - Lihat status ketersediaan dan kondisi sarana.
-  - Cetak laporan pendataan sarana.
-- **Autentikasi Pengguna**
-  - Login, register, manajemen user dengan role berbeda (admin/user).
-- **Dashboard Interaktif**
-  - Statistik penggunaan dan kondisi sarana.
+- **Manajemen Data**
+  - Pengelolaan data **kategori** sarana.
+  - Pengelolaan data **sarana/barang**.
+  - Pengelolaan data **divisi**.
+  - Pengelolaan data **pengguna/user**.
+  - Pencatatan **distribusi sarana** ke masing-masing divisi.
+
+- **QR Code Scanner**
+  - Setiap sarana memiliki QR Code unik.
+  - Halaman utama dilengkapi fitur **QR Scanner** untuk memindai QR sarana.
+  - Hasil pemindaian menampilkan informasi sarana dan divisi pemiliknya.
+
+- **Autentikasi**
+  - Sistem login untuk admin/pengelola.
+  - User hanya bisa memindai QR tanpa perlu login.
+
+- **Pencatatan Distribusi**
+  - Mencatat barang apa saja yang didistribusikan ke divisi tertentu.
+  - Belum dilengkapi fitur cetak laporan (masih fokus pada pencatatan distribusi).
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **Backend**: Laravel
-- **Frontend**: Blade Template + Bootstrap/Tailwind *(sesuaikan dengan stack yang dipakai)*
-- **Database**: MySQL
-- **Autentikasi**: Laravel Breeze/Fortify *(atau sebutkan sesuai package)*
-- **Fitur Tambahan**: Validasi input, flash message, dll.
+- **Backend:** Laravel
+- **Database:** MySQL
+- **QR Code:** Library untuk generate dan membaca QR Code
+- **Frontend:** Blade Template dengan Tailwind CSS (jika digunakan)
 
-## ⚙️ Cara Instalasi
+## 📸 Screenshot
 
-1. **Clone Repository**
+_Tambahkan tangkapan layar di sini jika ada_
+
+## 🚀 Cara Menjalankan
+
+1. **Clone repository**
    ```bash
    git clone https://github.com/Muhauzi/Sistem-Informasi-Sarana.git
-   cd Sistem-Informasi-Sarana
    ```
 
-2. **Install Dependency**
+2. **Install dependensi**
    ```bash
    composer install
-   npm install && npm run dev
    ```
 
-3. **Buat File Environment**
+3. **Copy file .env**
    ```bash
    cp .env.example .env
+   ```
+
+4. **Generate APP_KEY**
+   ```bash
    php artisan key:generate
    ```
 
-4. **Konfigurasi Database**
-   - Update file `.env` dengan detail database MySQL kamu.
-   - Jalankan migrasi:
-     ```bash
-     php artisan migrate
-     ```
+5. **Buat database dan atur .env**
 
-5. **Jalankan Server**
+6. **Migrate database**
+   ```bash
+   php artisan migrate
+   ```
+
+7. **Jalankan server lokal**
    ```bash
    php artisan serve
    ```
 
-   Aplikasi akan berjalan di `http://localhost:8000`
+## 💡 Catatan
 
-## 📝 Catatan
+- Pastikan database sudah terhubung dengan benar.
+- Untuk QR Code Scanner, gunakan kamera pada perangkat Anda melalui homepage.
 
-- Pastikan sudah mengatur permission folder `storage` dan `bootstrap/cache`.
-- Repository ini masih tahap pengembangan *(update jika project sudah production-ready)*.
+## 📄 Lisensi
 
-## 📬 Kontribusi
-
-Pull request sangat disambut!  
-Jika menemukan bug, silakan buat issue atau PR dengan perbaikan.
-
-## 👤 Penulis
-
-- **Nama**: [Muhauzi](https://github.com/Muhauzi)
-- **Role**: Backend Developer | Fullstack Developer *(jika sesuai)*
+Project ini hanya digunakan untuk kebutuhan internal dan pembelajaran.
 
 ---
 
-**Lisensi**: MIT License
+**Author**  
+[@Muhauzi](https://github.com/Muhauzi)
