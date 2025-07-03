@@ -30,11 +30,28 @@ Sistem Informasi Sarana adalah aplikasi web berbasis Laravel yang digunakan untu
 - **Backend:** Laravel
 - **Database:** MySQL
 - **QR Code:** Library untuk generate dan membaca QR Code
-- **Frontend:** Blade Template dengan Tailwind CSS (jika digunakan)
+- **Frontend:** Blade Template dengan Tailwind CSS
 
 ## 📸 Screenshot
 
-_Tambahkan tangkapan layar di sini jika ada_
+1. **Homepage**
+   ![Screenshot 2025-07-03 114121](https://github.com/user-attachments/assets/4b16d566-07c6-4451-afdc-fcef4564bdb0)
+3. **Login Page**
+   ![Screenshot 2025-07-03 114129](https://github.com/user-attachments/assets/b0447c32-7d05-40be-981b-3633666c0880)
+5. **Kelola Kategori**
+   ![Screenshot 2025-07-03 114145](https://github.com/user-attachments/assets/44993a66-f516-4953-a849-a534b9ac59c9)
+7. **Kelola Sarana**
+   ![Screenshot 2025-07-03 114152](https://github.com/user-attachments/assets/57335580-3b08-4e15-8c68-a96ad505c3c6)
+
+9. **Kelola Divisi**
+    ![Screenshot 2025-07-03 114158](https://github.com/user-attachments/assets/6ed3ae3c-8c95-4fa1-a531-037366917137)
+
+11. **Kelola Distribusi**
+    ![Screenshot 2025-07-03 114205](https://github.com/user-attachments/assets/c98fe424-c956-482a-b35d-25a97a00c4e6)
+
+13. **Kelola Users**
+    ![Screenshot 2025-07-03 114215](https://github.com/user-attachments/assets/b8cca4ad-c3f0-4bd9-aaae-d8937813eb29)
+
 
 ## 🚀 Cara Menjalankan
 
