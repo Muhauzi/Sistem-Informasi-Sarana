@@ -31,6 +31,7 @@ Sistem Informasi Sarana adalah aplikasi web berbasis Laravel yang digunakan untu
 - **Database:** MySQL
 - **QR Code:** Library untuk generate dan membaca QR Code
 - **Frontend:** Blade Template dengan Tailwind CSS
+- **Design Figma:** [Link Design] (https://www.figma.com/design/QFWpYrRuiCzaIs6MjvxnNN/SIRANA-BKPSDM?node-id=1-752&t=v9MGKMlxql9SC3OJ-1) 
 
 ## 📸 Screenshot
 
